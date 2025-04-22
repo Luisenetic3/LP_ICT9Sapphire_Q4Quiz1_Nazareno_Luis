@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    
+        #grad1 {
+            height: 100%;
+            background-color: red; /* For browsers that do not support gradients */
+            background-image: linear-gradient(to bottom right, rgb(79, 255, 73), rgb(0, 134, 182));
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="grad1">
+        ‎ 
+        <div class="container border border-3 border-dark p-3">
+            <div class="row">
+                <div class="col">
+                    <img src="38217402.jpg" alt="" width="600px" height="600px" class="rounded">
+                </div>
+        
+                <div class="col">
+                    <br>
+                    <br>
+                    <div class="container m-3" style="text-align: center; margin-top: 10px;">
+                        <h1 class="text-center">BMI Calculator</h1>
+                        <br>
+                
+                        <label for="" class="">Enter your weight (kg): </label>
+                        <input type="number" class="form-control" id="weight" placeholder="Weight in kg">
+                        <br><br>
+                
+                        <label for="">Enter your height (m): </label>
+                        <input type="number" class="form-control" id="height" placeholder="Height in m">
+                        <br><br>
+                
+                        <button type="button" class="btn btn-warning" onclick="calculateBMI()"> Calculate BMI</button>
+                        <br>
+                        <h2 id="result"> Your BMI is...</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function calculateBMI() {
+            var Weight = Number(document.getElementById("weight").value);
+            var Height = Number(document.getElementById("height").value);
+            var BMI_Calculated;
+        
+            BMI_Calculated = Number(Weight / (Math.pow(Height, 2)));
+            
+
+            if (BMI_Calculated < 18.5) {
+                document.getElementById("result").innerHTML = "Your BMI is " + BMI_Calculated.toFixed(2) + "<br> Thats alittle bit underweight, try eating more";
+            }
+            if (BMI_Calculated >= 18.5 && BMI_Calculated <= 24.9) {
+                document.getElementById("result").innerHTML = "Your BMI is " + BMI_Calculated.toFixed(2) + "<br> Good job, your normal weight";
+            }
+            if (BMI_Calculated >= 25 && BMI_Calculated <= 29.9) {
+                document.getElementById("result").innerHTML = "Your BMI is " + BMI_Calculated.toFixed(2) + "<br> Your  Overweight, try exercising";
+            }
+            if (BMI_Calculated >= 30) {
+                document.getElementById("result").innerHTML = "Your BMI is " + BMI_Calculated.toFixed(2) + "<br> Your Obese, exercise for your health";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
